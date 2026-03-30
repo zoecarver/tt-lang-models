@@ -42,6 +42,10 @@ TTNN + TT-Lang implementation of Qwen-Image 20B image generation across 4 Blackh
 
 <p align="center"><img src="doc/qwen-image-preview.png" width="480"></p>
 
+## [Micelle MD](micelle-demo/)
+
+Cell-list molecular dynamics on Tenstorrent hardware using TT-Lang. Full Ewald electrostatics with LJ short-range forces, periodic boundary conditions, and on-device Verlet integration. Validated at 10K atoms, 10K steps, 1.1ms/step.
+
 ## [Toy World Model](toy-wm/)
 
 A Pong world model based on a diffusion transformer, trained on 9 hours of gameplay, running interactively on a single Blackhole card.

@@ -10,6 +10,8 @@ DFlash is a lightweight cross-attention draft model for speculative decoding on 
 
 Acceptance rate matches the PyTorch reference model. With caching and 120k context, the draft forward pass runs in 93ms (vs 887ms without caching).
 
+Also includes a full [Qwen3-Coder-30B-A3B inference implementation](dflash/qwen3_inference.py), a 48-layer MoE target model running on 4-chip TP with traced execution and zero host transfers in the hot loop. TT-Lang kernels cover RMSNorm, per-head RMSNorm, RoPE, SiLU, residual adds, softmax, cross-attention, and argmax.
+
 ## [Engram](Engram/)
 
 A port of the DeepSeek Engram conditional memory module to TT-Lang on Wormhole. Engram uses streaming dataflow kernels with inter-core boundary sharing via PipeNet for overlap-aware depthwise convolution.

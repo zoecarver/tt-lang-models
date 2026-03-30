@@ -1,0 +1,18 @@
+[submodule "dflash"]
+	path = dflash
+	url = git@github.com:zoecarver/dflash.git
+[submodule "nanochat"]
+	path = nanochat
+	url = git@github.com:zoecarver/nanochat.git
+[submodule "qwen-image-tt-xla"]
+	path = qwen-image-tt-xla
+	url = git@github.com:zoecarver/qwen-image-tt-xla.git
+[submodule "open-oasis"]
+	path = open-oasis
+	url = git@github.com:zoecarver/open-oasis.git
+[submodule "toy-wm"]
+	path = toy-wm
+	url = git@github.com:zoecarver/toy-wm.git
+[submodule "Engram"]
+	path = Engram
+	url = git@github.com:zoecarver/Engram.git

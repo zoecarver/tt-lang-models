@@ -29,7 +29,7 @@ nanochat inference entirely in TT-Lang.
 
 Real-time Minecraft world generation on Tenstorrent Blackhole using the Oasis 500M diffusion transformer. Runs end-to-end inference (DiT denoising, VAE decode, video output) in a single captured trace at 8 FPS. Supports multi-chip 4-way tensor parallelism.
 
-<p align="center"><img src="doc/oasis-preview.gif" width="480"></p>
+![oasis](doc/oasis-preview.gif)
 
 ## [Qwen-Image](qwen-image-tt-xla/)
 
@@ -52,14 +52,16 @@ TTNN + TT-Lang implementation of Qwen-Image 20B image generation across 4 Blackh
 
 Normalized per-step, TT-Lang is ~4-7x faster at 256x256 and ~8.6x faster at 512x512.
 
-<p align="center"><img src="doc/qwen-image-preview.png" width="480"></p>
+![qwen-image](doc/qwen-image-preview.png)
 
 ## [Micelle MD](micelle-demo/)
 
 Cell-list molecular dynamics on Tenstorrent hardware using TT-Lang. Full Ewald electrostatics with LJ short-range forces, periodic boundary conditions, and on-device Verlet integration. Validated at 10K atoms, 10K steps, 1.1ms/step.
 
+![micelle](doc/micelle-preview.gif)
+
 ## [Toy World Model](toy-wm/)
 
 A Pong world model based on a diffusion transformer, trained on 9 hours of gameplay, running interactively on a single Blackhole card.
 
-<p align="center"><img src="doc/toy-wm-preview.gif" width="480"></p>
+![toy-wm](doc/toy-wm-preview.gif)

@@ -33,12 +33,22 @@ Real-time Minecraft world generation on Tenstorrent Blackhole using the Oasis 50
 
 TTNN + TT-Lang implementation of Qwen-Image 20B image generation across 4 Blackhole chips.
 
+**TT-Lang:**
 | Resolution | Steps | Time |
 |---|---|---|
 | 256x256 | 4 | 1.1s |
 | 256x256 | 20 | 5.3s |
 | 512x512 | 60 | 37.7s |
 | 1024x1024 | 60 | 146.6s |
+
+**XLA:**
+| Resolution | CFG | Steps | Per-step | Total |
+|---|---|---|---|---|
+| 256x256 | 4.0 | 15 | 1.75s | 28s |
+| 256x256 | 1.0 | 15 | 1.04s | 18s |
+| 512x512 | 4.0 | 20 | 5.42s | 112s |
+
+Normalized per-step, TT-Lang is ~4-7x faster at 256x256 and ~8.6x faster at 512x512.
 
 <p align="center"><img src="doc/qwen-image-preview.png" width="480"></p>
 

@@ -16,3 +16,6 @@
 [submodule "Engram"]
 	path = Engram
 	url = git@github.com:zoecarver/Engram.git
+[submodule "diamond"]
+	path = diamond
+	url = https://github.com/zoecarver/diamond.git

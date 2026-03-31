@@ -60,6 +60,12 @@ Cell-list molecular dynamics on Tenstorrent hardware using TT-Lang. Full Ewald e
 
 ![micelle](doc/micelle-preview.gif)
 
+## [Diamond](https://github.com/zoecarver/diamond)
+
+UNet-based diffusion world model ([DIAMOND](https://diamond-wm.github.io), NeurIPS 2024) running on a single Blackhole card. Generates Atari game frames autoregressively using a 4-level encoder/decoder with 3 Euler denoising steps per frame. Runs at ~14 FPS, with interactive browser play across 26 Atari games.
+
+![diamond](doc/diamond-preview.png)
+
 ## [Toy World Model](https://github.com/zoecarver/toy-wm)
 
 A Pong world model based on a diffusion transformer, trained on 9 hours of gameplay, running interactively on a single Blackhole card.

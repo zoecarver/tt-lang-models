@@ -4,7 +4,7 @@ Reference models that are partially or entirely implemented using [TT-Lang](http
 
 ---
 
-## [DFlash](dflash/)
+## [DFlash](https://github.com/zoecarver/dflash)
 
 DFlash is a lightweight cross-attention draft model for speculative decoding on Tenstorrent hardware. It proposes 16 tokens in parallel, verified by a target Qwen3-30B LLM, achieving a 5-6x decoding speedup. Draft model kernels (RoPE, RMSNorm, SiLU, residual adds) run entirely on device via TT-Lang.
 
@@ -12,7 +12,7 @@ Acceptance rate matches the PyTorch reference model. With caching and 120k conte
 
 Also includes a full [Qwen3-Coder-30B-A3B inference implementation](dflash/qwen3_inference.py), a 48-layer MoE target model running on 4-chip TP with traced execution and zero host transfers in the hot loop. TT-Lang kernels cover RMSNorm, per-head RMSNorm, RoPE, SiLU, residual adds, softmax, cross-attention, and argmax.
 
-## [Engram](Engram/)
+## [Engram](https://github.com/zoecarver/Engram)
 
 A port of the DeepSeek Engram conditional memory module to TT-Lang on Wormhole. Engram uses streaming dataflow kernels with inter-core boundary sharing via PipeNet for overlap-aware depthwise convolution.
 
@@ -21,17 +21,17 @@ A port of the DeepSeek Engram conditional memory module to TT-Lang on Wormhole. 
 | **TTNN** | 3.86 ms | 0.99 ms | 4.84 ms |
 | **TT-Lang** | 1.15 ms | 1.02 ms | 2.17 ms |
 
-## [nanochat](nanochat/)
+## [nanochat](https://github.com/zoecarver/nanochat)
 
 nanochat inference entirely in TT-Lang.
 
-## [Oasis](open-oasis/)
+## [Oasis](https://github.com/zoecarver/open-oasis)
 
 Real-time Minecraft world generation on Tenstorrent Blackhole using the Oasis 500M diffusion transformer. Runs end-to-end inference (DiT denoising, VAE decode, video output) in a single captured trace at 8 FPS. Supports multi-chip 4-way tensor parallelism.
 
 ![oasis](doc/oasis-preview.gif)
 
-## [Qwen-Image](qwen-image-tt-xla/)
+## [Qwen-Image](https://github.com/zoecarver/qwen-image-tt-xla)
 
 TTNN + TT-Lang implementation of Qwen-Image 20B image generation across 4 Blackhole chips.
 
@@ -60,7 +60,7 @@ Cell-list molecular dynamics on Tenstorrent hardware using TT-Lang. Full Ewald e
 
 ![micelle](doc/micelle-preview.gif)
 
-## [Toy World Model](toy-wm/)
+## [Toy World Model](https://github.com/zoecarver/toy-wm)
 
 A Pong world model based on a diffusion transformer, trained on 9 hours of gameplay, running interactively on a single Blackhole card.
 

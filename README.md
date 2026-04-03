@@ -21,6 +21,10 @@ A port of the DeepSeek Engram conditional memory module to TT-Lang on Wormhole. 
 | **TTNN** | 3.86 ms | 0.99 ms | 4.84 ms |
 | **TT-Lang** | 1.15 ms | 1.02 ms | 2.17 ms |
 
+## [Gemma 4](https://github.com/zoecarver/gemma4)
+
+Autoregressive inference for Google's Gemma 4 E4B on a single Blackhole chip. TT-Lang kernels cover linear, flash attention, RoPE, SwiGLU, and softcap across all 42 layers with sliding/global attention and KV sharing. Runs at 7.45 tok/s.
+
 ## [nanochat](https://github.com/zoecarver/nanochat)
 
 nanochat inference entirely in TT-Lang.

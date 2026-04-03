@@ -4,6 +4,9 @@
 [submodule "nanochat"]
 	path = nanochat
 	url = git@github.com:zoecarver/nanochat.git
+[submodule "gemma4"]
+	path = gemma4
+	url = git@github.com:zoecarver/gemma4.git
 [submodule "qwen-image-tt-xla"]
 	path = qwen-image-tt-xla
 	url = git@github.com:zoecarver/qwen-image-tt-xla.git

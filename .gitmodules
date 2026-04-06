@@ -22,3 +22,6 @@
 [submodule "diamond"]
 	path = diamond
 	url = https://github.com/zoecarver/diamond.git
+[submodule "lingbot-world"]
+	path = lingbot-world
+	url = git@github.com:zoecarver/lingbot-world.git

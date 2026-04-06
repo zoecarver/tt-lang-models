@@ -23,11 +23,15 @@ A port of the DeepSeek Engram conditional memory module to TT-Lang on Wormhole. 
 
 ## [Gemma 4](https://github.com/zoecarver/gemma4)
 
-Autoregressive inference for Google's Gemma 4 E4B on a single Blackhole chip. TT-Lang kernels cover linear, flash attention, RoPE, SwiGLU, and softcap across all 42 layers with sliding/global attention and KV sharing. Runs at 7.45 tok/s.
+Autoregressive inference for Google's Gemma 4 E4B on a single Blackhole chip. TT-Lang kernels cover linear, flash attention, RoPE, SwiGLU, and softcap across all 42 layers with sliding/global attention and KV sharing. Runs at ~17 tok/s.
 
 ## [nanochat](https://github.com/zoecarver/nanochat)
 
-nanochat inference entirely in TT-Lang.
+Inference and training for nanochat entirely in TT-Lang. Every kernel has a backwards version. Single-file implementations at [`nanochat/ttlang/inference.py`](nanochat/ttlang/inference.py) and [`nanochat/ttlang/train.py`](nanochat/ttlang/train.py).
+
+Notable fusions:
+- [Fused MLP projection](https://github.com/zoecarver/nanochat/commit/f849d3f) -- replaces 7 dispatches (4 slice matmuls + 3 residual adds) with a single kernel using L1 accumulation via ping-pong DFBs. 13.13 to 15.89 tok/s (+21%).
+- [Fused QKV projection](https://github.com/zoecarver/nanochat/commit/9034746) -- reads input once and computes Q, K, V in one dispatch, reducing DRAM reads. 12.30 to 13.13 tok/s (+6.7%).
 
 ## [Oasis](https://github.com/zoecarver/open-oasis)
 
@@ -69,6 +73,12 @@ Cell-list molecular dynamics on Tenstorrent hardware using TT-Lang. Full Ewald e
 UNet-based diffusion world model ([DIAMOND](https://diamond-wm.github.io), NeurIPS 2024) running on a single Blackhole card. Generates Atari game frames autoregressively using a 4-level encoder/decoder with 3 Euler denoising steps per frame. Runs at ~14 FPS, with interactive browser play across 26 Atari games.
 
 ![diamond](doc/diamond-preview.png)
+
+## [LingBot-World](https://github.com/zoecarver/lingbot-world) (WIP)
+
+Video generation from the [LingBot-World-Fast](https://huggingface.co/robbyant/lingbot-world-fast) 14B DiT model on a 4-chip QuietBox with tensor parallelism. Generates 480x832 video with camera pose conditioning at 0.47 fps. TT-Lang kernels cover 3D RoPE and AdaLN broadcast modulation.
+
+![lingbot-world](doc/lingbot-world-preview.gif)
 
 ## [Toy World Model](https://github.com/zoecarver/toy-wm)
 

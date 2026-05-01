@@ -33,6 +33,12 @@ Notable fusions:
 - [Fused MLP projection](https://github.com/zoecarver/nanochat/commit/f849d3f) -- replaces 7 dispatches (4 slice matmuls + 3 residual adds) with a single kernel using L1 accumulation via ping-pong DFBs. 13.13 to 15.89 tok/s (+21%).
 - [Fused QKV projection](https://github.com/zoecarver/nanochat/commit/9034746) -- reads input once and computes Q, K, V in one dispatch, reducing DRAM reads. 12.30 to 13.13 tok/s (+6.7%).
 
+## [DeepSeek-V4-Flash](https://github.com/zoecarver/tt-deepseek-v4)
+
+DeepSeek-V4-Flash inference on Tenstorrent Galaxy (4×8 BH), end-to-end in a single self-contained `inference.py`. Hot ops are TT-Lang fused kernels (RMSNorm, MHC pre/post mixes, log-domain Sinkhorn, KV act-quant, compressor slot-shift and softmax/sum/RMSNorm fusion, SwiGLU); the rest is TTNN. The whole decode step is captured as a TTNN trace replayed in alternation between emit and no-emit branches.
+
+Routed-expert weights are ported from fp4 e2m1 + e8m0 scales to native `ttnn.bfloat4_b` via an offline lattice cache and an offload-time algebraic remap, so the hot path is a single `ttnn.matmul(bf16, bfp4_b)` with no per-call dequant.
+
 ## [Oasis](https://github.com/zoecarver/open-oasis)
 
 Real-time Minecraft world generation on Tenstorrent Blackhole using the Oasis 500M diffusion transformer. Runs end-to-end inference (DiT denoising, VAE decode, video output) in a single captured trace at 8 FPS. Supports multi-chip 4-way tensor parallelism.

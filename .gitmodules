@@ -25,3 +25,6 @@
 [submodule "lingbot-world"]
 	path = lingbot-world
 	url = git@github.com:zoecarver/lingbot-world.git
+[submodule "deepseek"]
+	path = deepseek
+	url = git@github.com:zoecarver/tt-deepseek-v4.git
